@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class Vehiculo {
+    private int id;
     @NotNull(message = "Debe existir una marca")
     private String marca;
     @NotNull(message = "Debe existir un modelo")
@@ -19,11 +20,20 @@ public class Vehiculo {
     @Max(2024)
     private int anio;
 
-    public Vehiculo(String marca, String modelo, String patente, int anio) {
+    public Vehiculo(int id, String marca, String modelo, String patente, int anio) {
+        this.id = id;
         this.marca = marca;
         this.modelo = modelo;
         this.patente = patente;
         this.anio = anio;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMarca() {
@@ -57,4 +67,6 @@ public class Vehiculo {
     public void setAnio(int anio) {
         this.anio = anio;
     }
+
+
 }
